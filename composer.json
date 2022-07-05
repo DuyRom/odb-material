@@ -14,12 +14,11 @@
             "email": "duyit192@hotmail.com"
         }
     ],
+    "minimum-stability": "dev",
+    "require": {},
     "scripts": {
         "post-install-cmd": [
             "@php artisan vendor:publish --tag=odb.material --ansi --force"
-        ],
-
-    },
-    "minimum-stability": "dev",
-    "require": {}
+        ]
+    }
 }

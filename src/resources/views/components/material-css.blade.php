@@ -1,1 +1,1 @@
-<link rel="stylesheet" href="/odinbi/css/style.css">
+<link rel="stylesheet" href="/odinbi/assets/css/style.css">

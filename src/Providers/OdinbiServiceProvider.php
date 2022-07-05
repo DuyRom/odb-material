@@ -1,6 +1,6 @@
 <?php
 
-namespace odinbi\material\Providers;
+namespace odinbi\material;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;

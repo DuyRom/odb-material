@@ -22,8 +22,11 @@
             "@php artisan package:discover --ansi",
             "@php artisan vendor:publish --tag=odb.material --force"
         ],
-         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=odb.material --force"
+        "post-install-cmd": [
+          "php artisan vendor:publish --tag=odb.material --force"
+        ],
+        "post-update-cmd": [
+            "php artisan vendor:publish --tag=odb.material --force"
         ]
    }
 }

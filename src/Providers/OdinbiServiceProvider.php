@@ -20,8 +20,7 @@ class OdinbiServiceProvider extends ServiceProvider
 
     public function boot()
     {
-
-      $this->loadViewsFrom(__DIR__.'/resources/views/components', 'elements');
+      $this->loadViewsFrom(__DIR__.'/../resources/views/components', 'elements');
       $this->bladeViewComponent('elements',[
           'app-content'=>'app-content'
       ]);
@@ -44,8 +43,8 @@ class OdinbiServiceProvider extends ServiceProvider
     {
         $publishable = [
             'odb.material'    => [
-                __DIR__.'/resources/assets/css/' => public_path('odinbi/assets/css'),
-                __DIR__.'/resources/views' => resource_path('views/odinbi/material'),
+                __DIR__.'/../resources/assets/' => public_path('odinbi/assets'),
+                __DIR__.'/../resources/views' => resource_path('views/odinbi/material'),
             ],
         ];
 

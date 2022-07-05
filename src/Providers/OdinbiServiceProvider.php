@@ -13,10 +13,10 @@ class OdinbiServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
-        $this->registerPublish();
-    }
+    // public function register()
+    // {
+    //     $this->registerPublish();
+    // }
 
     public function boot()
     {
@@ -24,6 +24,7 @@ class OdinbiServiceProvider extends ServiceProvider
       $this->bladeViewComponent('elements',[
           'app-content'=>'app-content'
       ]);
+      $this->registerPublish();
 
     }
 

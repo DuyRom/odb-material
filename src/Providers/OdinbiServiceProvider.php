@@ -55,4 +55,19 @@ class OdinbiServiceProvider extends ServiceProvider
         }
 
     }
+
+
+    /**
+     * Load all helpers.
+     *
+     * @return void
+     */
+    protected function loadComponents()
+    {
+        $component  = [] ;
+        foreach (glob(__DIR__.'/../resources/views/*.php') as $filename) {
+          $component = $filename;
+        }
+        return $component;
+    }
 }

@@ -12,16 +12,16 @@ class OdinbiServiceProvider extends ServiceProvider
     {
       // $this->loadRoutesFrom(__DIR__.'/../../routes/dashboard-theme.php');
       // $this->loadViewsFrom(__DIR__.'/../../resources/views', 'dashboard-theme');
-      $this->loadViewsFrom(__DIR__.'/resources/views/components', 'elements');
+      $this->loadViewsFrom(__DIR__.'/../../resources/views/components', 'elements');
       $this->bladeViewComponent('elements',[
           'app-content'=>'app-content'
       ]);
 
       $this->publishes([
-          __DIR__.'/resources/assets/' => public_path('odinbi/material'),
+          __DIR__.'/../../resources/assets/' => public_path('odinbi/material'),
       ], 'public');
   
-      $this->publishes([__DIR__.'/resources/views/components' => resource_path('views/odinbi/material'),
+      $this->publishes([__DIR__.'/../../resources/views/components' => resource_path('views/odinbi/material'),
       ]);
 
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace odinbi\material;
+namespace odinbi\material\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
@@ -44,7 +44,7 @@ class OdinbiServiceProvider extends ServiceProvider
     {
         $publishable = [
             'odb.material'    => [
-                __DIR__.'/resources/assets/' => public_path('odinbi/assets'),
+                __DIR__.'/resources/assets/css/' => public_path('odinbi/assets/css'),
                 __DIR__.'/resources/views' => resource_path('views/odinbi/material'),
             ],
         ];

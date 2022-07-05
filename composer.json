@@ -1,0 +1,19 @@
+{
+    "name": "odinbi/material",
+    "description": "Demo Theme",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Odinbi\\Material\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "duynguyen",
+            "email": "duyit192@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

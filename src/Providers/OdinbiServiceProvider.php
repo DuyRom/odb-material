@@ -22,7 +22,8 @@ class OdinbiServiceProvider extends ServiceProvider
     {
       $this->loadViewsFrom(__DIR__.'/../resources/views/components', 'elements');
       $this->bladeViewComponent('elements',[
-          'app-content'=>'app-content'
+          'app-content'=>'app-content',
+          'material-css'=>'material-css'
       ]);
       $this->registerPublish();
 

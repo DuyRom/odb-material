@@ -8,20 +8,22 @@ use Illuminate\Support\Facades\Blade;
 
 class OdinbiServiceProvider extends ServiceProvider
 {
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->registerPublish();
+    }
+
     public function boot()
     {
-      // $this->loadRoutesFrom(__DIR__.'/../../routes/dashboard-theme.php');
-      // $this->loadViewsFrom(__DIR__.'/../../resources/views', 'dashboard-theme');
-      $this->loadViewsFrom(__DIR__.'/../../resources/views/components', 'elements');
+
+      $this->loadViewsFrom(__DIR__.'/resources/views/components', 'elements');
       $this->bladeViewComponent('elements',[
           'app-content'=>'app-content'
-      ]);
-
-      $this->publishes([
-          __DIR__.'/../../resources/assets/' => public_path('odinbi/material'),
-      ], 'public');
-  
-      $this->publishes([__DIR__.'/../../resources/views/components' => resource_path('views/odinbi/material'),
       ]);
 
     }
@@ -31,5 +33,25 @@ class OdinbiServiceProvider extends ServiceProvider
       foreach ($components as $prefix => $component) {
         Blade::component($view."::".$component,$prefix);
       }
+    }
+
+     /**
+     * Register publishable assets.
+     *
+     * @return void
+     */
+    protected function registerPublish()
+    {
+        $publishable = [
+            'odb.material'    => [
+                __DIR__.'/resources/assets/' => public_path('odinbi/assets'),
+                __DIR__.'/resources/views' => resource_path('views/odinbi/material'),
+            ],
+        ];
+
+        foreach ($publishable as $group => $paths) {
+            $this->publishes($paths, $group);
+        }
+
     }
 }

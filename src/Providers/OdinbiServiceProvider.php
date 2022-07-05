@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 
 
-class DadboardThemeServiceProvider extends ServiceProvider
+class OdinbiServiceProvider extends ServiceProvider
 {
     public function boot()
     {

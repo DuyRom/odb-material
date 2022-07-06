@@ -33,7 +33,7 @@ class OdinbiServiceProvider extends ServiceProvider
     public function bladeViewComponent($view,array $components)
     {
       foreach ($components as $prefix => $component) {
-        Blade::component($view."::".$component);
+        Blade::component($view."::".$component,$prefix);
       }
     }
 

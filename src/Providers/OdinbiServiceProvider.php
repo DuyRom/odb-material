@@ -21,10 +21,11 @@ class OdinbiServiceProvider extends ServiceProvider
     public function boot()
     {
       $this->loadViewsFrom(__DIR__.'/../resources/views/components', 'elements');
-      $this->bladeViewComponent('elements',[
-          'app-content'=>'app-content',
-          'material-css'=>'material-css'
-      ]);
+      // $this->bladeViewComponent('elements',[
+      //     'app-content'=>'app-content',
+      //     'material-css'=>'material-css'
+      // ]);
+      $this->bladeViewComponent('elements',$this->loadComponentFile());
       $this->registerPublish();
 
     }
@@ -56,18 +57,19 @@ class OdinbiServiceProvider extends ServiceProvider
 
     }
 
-
-    /**
-     * Load all helpers.
-     *
-     * @return void
-     */
-    protected function loadComponents()
+    protected function getBaseName($filename)
     {
-        $component  = [] ;
-        foreach (glob(__DIR__.'/../resources/views/*.php') as $filename) {
-          $component = $filename;
-        }
-        return $component;
+      return basename($filename,".blade.php");
+    }
+
+    public function loadComponentFile()
+    {
+      $components  = array() ;
+      foreach (glob(__DIR__.'/../resources/views/components/*.php') as $filename) {
+        $components [] = array(
+          $this->getBaseName($filename) => $this->getBaseName($filename)
+        );
+      }
+      return $components;
     }
 }

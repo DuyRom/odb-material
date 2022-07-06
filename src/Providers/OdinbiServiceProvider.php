@@ -21,11 +21,11 @@ class OdinbiServiceProvider extends ServiceProvider
     public function boot()
     {
       $this->loadViewsFrom(__DIR__.'/../resources/views/components', 'elements');
-      // $this->bladeViewComponent('elements',[
-      //     'app-content'=>'app-content',
-      //     'material-css'=>'material-css'
-      // ]);
-      $this->bladeViewComponent('elements',$this->loadComponentFile());
+      $this->bladeViewComponent('elements',[
+          'app-content'=>'app-content',
+          'material-css'=>'material-css'
+      ]);
+      //$this->bladeViewComponent('elements',$this->loadComponentFile());
       $this->registerPublish();
 
     }

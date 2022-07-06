@@ -33,7 +33,7 @@ class OdinbiServiceProvider extends ServiceProvider
     public function bladeViewComponent($view)
     {
       foreach ($this->loadComponentFile() as $prefix => $component) {
-        Blade::component($view."::".$component."=>".$component);
+        Blade::component($view."::".$component);
       }
     }
 
@@ -72,11 +72,12 @@ class OdinbiServiceProvider extends ServiceProvider
     //   }
     //   return $components;
     // }
+
     public function loadComponentFile()
     {
       $components  = array() ;
-      foreach (glob(__DIR__.'/../resources/views/components/*.php') as $filename) {
-        array_push($components,$this->getBaseName($filename));
+      foreach (glob(__DIR__.'/../resources/views/components/*.php')) as $filename) {
+        $components[$this->getBaseName($filename)] = $this->getBaseName($filename);
       }
       return $components;
     }

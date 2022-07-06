@@ -62,13 +62,21 @@ class OdinbiServiceProvider extends ServiceProvider
       return basename($filename,".blade.php");
     }
 
+    // public function loadComponentFile()
+    // {
+    //   $components  = array() ;
+    //   foreach (glob(__DIR__.'/../resources/views/components/*.php') as $filename) {
+    //     $components [] = array (
+    //       $this->getBaseName($filename) => $this->getBaseName($filename)
+    //     );
+    //   }
+    //   return $components;
+    // }
     public function loadComponentFile()
     {
       $components  = array() ;
       foreach (glob(__DIR__.'/../resources/views/components/*.php') as $filename) {
-        $components [] = array (
-          $this->getBaseName($filename) => $this->getBaseName($filename)
-        );
+        array_push($components,$this->getBaseName($filename));
       }
       return $components;
     }

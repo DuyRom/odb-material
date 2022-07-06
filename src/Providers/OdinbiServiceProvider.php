@@ -25,14 +25,14 @@ class OdinbiServiceProvider extends ServiceProvider
       //     'app-content'=>'app-content',
       //     'material-css'=>'material-css'
       // ]);
-      $this->bladeViewComponent('elements',$this->loadComponentFile());
+      $this->bladeViewComponent('elements');
       $this->registerPublish();
 
     }
 
-    public function bladeViewComponent($view,array $components)
+    public function bladeViewComponent($view)
     {
-      foreach ($components as $prefix => $component) {
+      foreach ($this->loadComponentFile() as $prefix => $component) {
         Blade::component($view."::".$component);
       }
     }

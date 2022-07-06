@@ -13,10 +13,10 @@ class OdinbiServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    // public function register()
-    // {
-    //     $this->registerPublish();
-    // }
+    public function register()
+    {
+        $this->registerPublish();
+    }
 
     public function boot()
     {
@@ -26,7 +26,7 @@ class OdinbiServiceProvider extends ServiceProvider
           'material-css'=>'material-css'
       ]);*/
       $this->bladeViewComponent('elements',$this->loadComponentFile());
-      $this->registerPublish();
+      // $this->registerPublish();
 
     }
 
@@ -61,17 +61,6 @@ class OdinbiServiceProvider extends ServiceProvider
     {
       return basename($filename,".blade.php");
     }
-
-    // public function loadComponentFile()
-    // {
-    //   $components  = array() ;
-    //   foreach (glob(__DIR__.'/../resources/views/components/*.php') as $filename) {
-    //     $components [] = array (
-    //       $this->getBaseName($filename) => $this->getBaseName($filename)
-    //     );
-    //   }
-    //   return $components;
-    // }
 
     public function loadComponentFile()
     {

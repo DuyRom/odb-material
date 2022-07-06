@@ -76,7 +76,7 @@ class OdinbiServiceProvider extends ServiceProvider
     public function loadComponentFile()
     {
       $components  = array() ;
-      foreach (glob(__DIR__.'/../resources/views/components/*.php')) as $filename) {
+      foreach (glob(__DIR__.'/../resources/views/components/*.php') as $filename) {
         $components[$this->getBaseName($filename)] = $this->getBaseName($filename);
       }
       return $components;

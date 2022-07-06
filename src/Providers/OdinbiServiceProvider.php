@@ -30,13 +30,18 @@ class OdinbiServiceProvider extends ServiceProvider
 
     }
 
-    public function bladeViewComponent($view,array $components)
+    // public function bladeViewComponent($view,array $components)
+    // {
+    //   foreach ($components as $prefix => $component) {
+    //     Blade::component($view."::".$component,$prefix);
+    //   }
+    // }
+    public function bladeViewComponent($view,$components)
     {
-      foreach ($components as $prefix => $component) {
-        Blade::component($view."::".$component,$prefix);
+      foreach ($components as $component) {
+        Blade::component($view."::".$component);
       }
     }
-
      /**
      * Register publishable assets.
      *

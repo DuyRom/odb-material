@@ -21,11 +21,11 @@ class OdinbiServiceProvider extends ServiceProvider
     public function boot()
     {
       $this->loadViewsFrom(__DIR__.'/../resources/views/components', 'elements');
-      // $this->bladeViewComponent('elements',[
-      //     'app-content'=>'app-content',
-      //     'material-css'=>'material-css'
-      // ]);
-      $this->bladeViewComponent('elements',[$this->loadComponentFile()]);
+      $this->bladeViewComponent('elements',[
+          'app-content'=>'app-content',
+          'material-css'=>'material-css'
+      ]);
+      //$this->bladeViewComponent('elements',$this->loadComponentFile());
       $this->registerPublish();
 
     }
@@ -33,15 +33,10 @@ class OdinbiServiceProvider extends ServiceProvider
     public function bladeViewComponent($view,array $components)
     {
       foreach ($components as $prefix => $component) {
-        Blade::component($view."::".$component,$prefix);
+        Blade::component($view."::".$component);
       }
     }
-    // public function bladeViewComponent($view,$components)
-    // {
-    //   foreach ($components as $component) {
-    //     Blade::component($view."::".$component);
-    //   }
-    // }
+
      /**
      * Register publishable assets.
      *
@@ -71,7 +66,7 @@ class OdinbiServiceProvider extends ServiceProvider
     {
       $components  = array() ;
       foreach (glob(__DIR__.'/../resources/views/components/*.php') as $filename) {
-        $components [] = array(
+        $components [] = array (
           $this->getBaseName($filename) => $this->getBaseName($filename)
         );
       }
